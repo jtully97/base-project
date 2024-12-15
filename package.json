@@ -1,27 +1,41 @@
 {
-  "name": "base-project",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.0"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.0",
-    "@eslint/eslintrc": "^3"
-  }
+    "name": "base-project",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "migrate": "knex migrate:latest --knexfile knexfile.ts",
+        "rollback": "knex migrate:rollback --knexfile knexfile.ts",
+        "createMigration": "npx ts-node db/createMigration.ts"
+    },
+    "dependencies": {
+        "knex": "^3.1.0",
+        "next": "15.1.0",
+        "pg": "^8.13.1",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "ts-node": "^10.9.2"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.6.0",
+        "@commitlint/config-conventional": "^19.6.0",
+        "@eslint/eslintrc": "^3",
+        "@types/knex": "^0.16.1",
+        "@types/node": "^22.10.2",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "15.1.0",
+        "husky": "^9.1.7",
+        "knex-cli": "^1.0.2",
+        "postcss": "^8",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5"
+    },
+    "main": "index.js",
+    "author": "Josh Tully <jtully97@gmail.com>",
+    "license": "MIT"
 }

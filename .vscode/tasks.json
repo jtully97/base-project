@@ -1,0 +1,81 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "dev",
+            "type": "shell",
+            "command": "yarn",
+            "args": ["next", "dev", "--turbopack"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "run the development server"
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "yarn",
+            "args": ["next", "build", "--turbopack"],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "create a production build"
+        },
+        {
+            "label": "start",
+            "type": "shell",
+            "command": "yarn",
+            "args": ["next", "start", "--turbopack"],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "starts the application in production mode"
+        },
+        {
+            "label": "lint",
+            "type": "shell",
+            "command": "yarn",
+            "args": ["next", "lint"],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Run the Next.js linter to check for code quality and styling issues"
+        },
+        {
+            "label": "migrate",
+            "type": "shell",
+            "command": "npx",
+            "args": ["knex", "migrate:latest", "--knexfile", "knexfile.ts"],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "run the latest knex migrations"
+        },
+        {
+            "label": "rollback",
+            "type": "shell",
+            "command": "npx",
+            "args": ["knex", "migrate:rollback", "--knexfile", "knexfile.ts"],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "rollback the latest knex migrations"
+        },
+        {
+            "label": "create migration",
+            "type": "shell",
+            "command": "npx ts-node db/createMigration.ts",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "run the script to create a new migration"
+        }
+    ]
+}
